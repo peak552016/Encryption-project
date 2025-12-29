@@ -1,98 +1,59 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+Hybrid Encryption API Service (NestJS)
+This project is a RESTful API service built with NestJS that provides secure data encryption and decryption using a Hybrid Encryption approach (combining AES-256-CBC and RSA).
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+🛠 Features
+Hybrid Encryption: Encrypts data with a randomly generated AES key, then secures that key with an RSA private key.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Hybrid Decryption: Retrieves the AES key using an RSA public key and then restores the original payload.
 
-## Description
+Swagger Documentation: Automated API documentation accessible via /api-docs.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Unit Testing: Fully tested service logic ensuring encryption/decryption integrity.
 
-## Project setup
+Prerequisites
+Node.js (Recommended version: 18.x or 20.x)
 
-```bash
-$ yarn install
-```
+npm or yarn
 
-## Compile and run the project
+Getting Started
+1. Installation
+Install the project dependencies:
 
-```bash
-# development
-$ yarn run start
+Bash
 
-# watch mode
-$ yarn run start:dev
+npm install
+2. Environment Configuration
+Create a .env file in the root directory and add your RSA keys generated from cryptotools.net/rsagen:
 
-# production mode
-$ yarn run start:prod
-```
+ข้อมูลโค้ด
 
-## Run tests
+PORT=3000
+RSA_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----\nYourKeyHere\n-----END RSA PRIVATE KEY-----"
+RSA_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----\nYourKeyHere\n-----END PUBLIC KEY-----"
+Note: Ensure the keys are wrapped in quotes and use \n for new lines to be parsed correctly.
 
-```bash
-# unit tests
-$ yarn run test
+3. Running the Service
+Start the NestJS application:
 
-# e2e tests
-$ yarn run test:e2e
+Bash
 
-# test coverage
-$ yarn run test:cov
-```
+npm run start
+The server will be running at http://localhost:3000.
 
-## Deployment
+4. API Documentation
+Access the Swagger UI to view and test the API endpoints:
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+URL: http://localhost:3000/api-docs
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Running Tests
+Execute the unit tests to verify the encryption service logic:
 
-```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
-```
+Bash
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+npm run test
+Project Structure
+src/: Contains the main application code (Controller, Service, DTO, Module).
 
-## Resources
+test/: Contains the unit test files (encryption.spec.ts).
 
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+.env: Environment variables and RSA keys.
