@@ -21,14 +21,14 @@ npm install
 ### 2. Setup Environment Variables
 Create a .env file in the root directory
 
-*** Note: For the convenience of the reviewer, the .env file containing the necessary RSA keys has been included in this repository. 
-
 The file includes:
 ```bash
 PORT: Set to 3000 by default.
 RSA_PRIVATE_KEY: Private key for encrypting the AES key.
 RSA_PUBLIC_KEY: Public key for decrypting the AES key.
 ```
+*** Note: For the convenience of the reviewer, the .env file containing the necessary RSA keys has been included in this repository. 
+
 
 ### 3. Running the App
 ```bash
