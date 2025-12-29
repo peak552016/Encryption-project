@@ -1,59 +1,49 @@
-Hybrid Encryption API Service (NestJS)
-This project is a RESTful API service built with NestJS that provides secure data encryption and decryption using a Hybrid Encryption approach (combining AES-256-CBC and RSA).
+# Hybrid Encryption API Service (NestJS)
 
-🛠 Features
-Hybrid Encryption: Encrypts data with a randomly generated AES key, then secures that key with an RSA private key.
+A RESTful API service built with **NestJS** that provides secure data encryption and decryption using a **Hybrid Encryption** approach (AES-256-CBC + RSA).
 
-Hybrid Decryption: Retrieves the AES key using an RSA public key and then restores the original payload.
+## 🛠 Features
+- **Hybrid Encryption**: AES-256-CBC for data and RSA for key exchange.
+- **Validation**: Payload length validation (up to 2,000 characters).
+- **Swagger Documentation**: Automated API docs at `/api-docs`.
+- **Unit Testing**: 100% test coverage for encryption logic.
 
-Swagger Documentation: Automated API documentation accessible via /api-docs.
+## 📋 Prerequisites
+- **Node.js**: v18 or v20
+- **npm**: v9 or above
 
-Unit Testing: Fully tested service logic ensuring encryption/decryption integrity.
+## 🚀 Getting Started
 
-Prerequisites
-Node.js (Recommended version: 18.x or 20.x)
-
-npm or yarn
-
-Getting Started
-1. Installation
-Install the project dependencies:
-
-Bash
-
+### 1. Installation
+```bash
 npm install
-2. Environment Configuration
-Create a .env file in the root directory and add your RSA keys generated from cryptotools.net/rsagen:
+```
+2. Setup Environment Variables
+Create a .env file in the root directory
+*** Note: For the convenience of the reviewer, the .env file containing the necessary RSA keys has been included in this repository. The file includes:
+```bash
+PORT: Set to 3000 by default.
+RSA_PRIVATE_KEY: Private key for encrypting the AES key.
+RSA_PUBLIC_KEY: Public key for decrypting the AES key.
+```
 
-ข้อมูลโค้ด
-
-PORT=3000
-RSA_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----\nYourKeyHere\n-----END RSA PRIVATE KEY-----"
-RSA_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----\nYourKeyHere\n-----END PUBLIC KEY-----"
-Note: Ensure the keys are wrapped in quotes and use \n for new lines to be parsed correctly.
-
-3. Running the Service
-Start the NestJS application:
-
-Bash
-
+3. Running the App
+```bash
+# Development mode
 npm run start
-The server will be running at http://localhost:3000.
 
-4. API Documentation
-Access the Swagger UI to view and test the API endpoints:
+# Access Swagger UI
+# http://localhost:3000/api-docs
+```
 
-URL: http://localhost:3000/api-docs
+4. Running Tests
 
-Running Tests
-Execute the unit tests to verify the encryption service logic:
-
-Bash
-
+```bash
 npm run test
-Project Structure
-src/: Contains the main application code (Controller, Service, DTO, Module).
+```
 
-test/: Contains the unit test files (encryption.spec.ts).
+5. Test API Endpoints
+- POST /get-encrypt-data: Returns data1 (Encrypted AES Key) and data2 (Encrypted Payload).
 
-.env: Environment variables and RSA keys.
+- POST /get-decrypt-data: Restores original payload from data1 and data2.
+
