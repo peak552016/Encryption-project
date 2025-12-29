@@ -2,17 +2,17 @@
 
 A RESTful API service built with **NestJS** that provides secure data encryption and decryption using a **Hybrid Encryption** approach (AES-256-CBC + RSA).
 
-## 🛠 Features
+## Features
 - **Hybrid Encryption**: AES-256-CBC for data and RSA for key exchange.
 - **Validation**: Payload length validation (up to 2,000 characters).
 - **Swagger Documentation**: Automated API docs at `/api-docs`.
 - **Unit Testing**: 100% test coverage for encryption logic.
 
-## 📋 Prerequisites
+## Prerequisites
 - **Node.js**: v18 or v20
 - **npm**: v9 or above
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Installation
 ```bash
