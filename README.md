@@ -18,7 +18,7 @@ A RESTful API service built with **NestJS** that provides secure data encryption
 ```bash
 npm install
 ```
-###2. Setup Environment Variables
+### 2. Setup Environment Variables
 Create a .env file in the root directory
 *** Note: For the convenience of the reviewer, the .env file containing the necessary RSA keys has been included in this repository. The file includes:
 ```bash
@@ -27,7 +27,7 @@ RSA_PRIVATE_KEY: Private key for encrypting the AES key.
 RSA_PUBLIC_KEY: Public key for decrypting the AES key.
 ```
 
-###3. Running the App
+### 3. Running the App
 ```bash
 # Development mode
 npm run start
@@ -36,13 +36,13 @@ npm run start
 # http://localhost:3000/api-docs
 ```
 
-###4. Running Tests
+### 4. Running Tests
 
 ```bash
 npm run test
 ```
 
-###5. Test API Endpoints
+### 5. Test API Endpoints
 ```bash
 - POST /get-encrypt-data: Returns data1 (Encrypted AES Key) and data2 (Encrypted Payload).
 - POST /get-decrypt-data: Restores original payload from data1 and data2.
